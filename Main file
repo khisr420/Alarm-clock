@@ -1,0 +1,29 @@
+import threading
+from datetime import datetime, timedelta
+#from playsound import playsound
+def alarm():
+
+    response = input("Do you want to set an alarm?")
+    if response.lower() == "yes":
+        x = datetime.now()
+        print(f'The current time is: {x}')
+        D = int(input("Enter the day"))
+        H = int(input("Enter the hour!"))
+        i = int(input("Enter minutes details"))
+        j = int(input("Enter second details"))
+        
+        delta1 =  x.replace(day = D, hour = H, minute= i, second=i)
+        dif = delta1-x
+        waiting = dif.total_seconds()
+        print(f'The alarm will ring at: {delta1}')
+        print(f'The dif is :  {dif}')
+        print(f'The waiting time is {waiting} seconds')
+        timer = threading.Timer(waiting, clock)
+        timer.start()
+    else:
+        print("now a valid time")
+def clock():
+    
+        print("--------------------------------")
+        print("Wake Up PLSSSSSSSSSSSSSSSSSSSSSS")
+        print("_______________________________")
